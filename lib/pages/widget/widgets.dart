@@ -19,3 +19,6 @@ export 'package:azkar/pages/widget/azkar/azkar_full/custom_main_body.dart';
 export 'package:azkar/pages/widget/azkar/azkar_full/custom_progress_circle.dart';
 export 'package:azkar/pages/widget/azkar/azkar_full/azkar_build_item.dart';
 export 'package:azkar/pages/widget/hadith/hadith_list/hadith_list_item.dart';
+export 'package:azkar/pages/widget/hadith/hadith_full/hadith_body_build_item.dart';
+export 'package:azkar/pages/widget/hadith/hadith_full/hadith_build_item.dart';
+export 'package:azkar/pages/widget/hadith/hadith_full/hadith_full_item.dart';

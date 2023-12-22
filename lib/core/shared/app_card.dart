@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../constants/size.dart';
 
 class AppCard extends StatelessWidget {
-  final double cHeight;
+  final double? cHeight;
   final double cWidth;
   final double zHeight;
   final double zWidth;
@@ -18,7 +18,7 @@ class AppCard extends StatelessWidget {
 
   const AppCard({
     super.key,
-    required this.cHeight,
+    this.cHeight,
     required this.cWidth,
     required this.zHeight,
     required this.zWidth,
@@ -101,6 +101,15 @@ class AppCard extends StatelessWidget {
         zWidth = width(context, 50.5),
         paddingTop = const EdgeInsets.all(5.0),
         paddingBottom = const EdgeInsets.all(5.0),
+        super(key: key);
+
+  AppCard.hadith(
+      {Key? key, required this.child, required this.context, this.cHeight})
+      : cWidth = double.infinity,
+        zHeight = height(context, 79.75),
+        zWidth = width(context, 82.91),
+        paddingTop = const EdgeInsets.all(4.0),
+        paddingBottom = const EdgeInsets.all(4.0),
         super(key: key);
 
   @override
