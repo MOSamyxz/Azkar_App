@@ -1,0 +1,68 @@
+[
+  {
+    "id": 0,
+    "number": 13,
+    "name": "البيت والأهل",
+    "image": "assets/daynight.png"
+  },
+  {
+    "id": 1,
+    "number": 7,
+    "name": "اليوم والليلة",
+    "image": "assets/home.png"
+  },
+  {
+    "id": 2,
+    "number": 15,
+    "name": "الفرح والخوف",
+    "image": "assets/happyfear.png"
+  },
+  {
+    "id": 3,
+    "number": 7,
+    "name": "الطعام والشراب",
+    "image": "assets/food.png"
+  },
+  {
+    "id": 4,
+    "number": 8,
+    "name": "الحج والعمرة",
+    "image": "assets/heg.png"
+  },
+  {
+    "id": 5,
+    "number": 19,
+    "name": "الوضوء والصلاة",
+    "image": "assets/salahwdoaa.png"
+  },
+  {
+    "id": 6,
+    "number": 11,
+    "name": "السفر والتنقل",
+    "image": "assets/safar.png"
+  },
+  {
+    "id": 7,
+    "number": 20,
+    "name": "التعامل والآداب ",
+    "image": "assets/behavior.png"
+  },
+  {
+    "id": 8,
+    "number": 10,
+    "name": "الطبيعة",
+    "image": "assets/nature.png"
+  },
+  {
+    "id": 9,
+    "number": 9,
+    "name": "التسابيح",
+    "image": "assets/tasabeh.png"
+  },
+  {
+    "id": 10,
+    "number": 13,
+    "name": "المرض والجنائز",
+    "image": "assets/sick.png"
+  }
+]
