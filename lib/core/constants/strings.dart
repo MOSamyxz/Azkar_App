@@ -14,6 +14,7 @@ class AppStrings {
   static String citiesaren = 'jsonfile/citiesaren.json';
 
 //========================Daawa=========================
+  static const String daawaButton = 'assets/daawa_button.png';
 
   static const String waai = 'assets/waai.png';
   static const String way2allahcom = 'assets/way2allahcom.png';

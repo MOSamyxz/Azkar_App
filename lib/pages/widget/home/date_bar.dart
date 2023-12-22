@@ -22,7 +22,7 @@ class HomeDateBar extends StatelessWidget {
           alignment: Alignment.center,
           height: height(context, 40),
           child: Text(
-            AppStrigs.date,
+            AppStrings.date,
             style: Theme.of(context).textTheme.displayLarge,
           ),
         ),
