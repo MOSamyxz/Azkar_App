@@ -18,3 +18,4 @@ export 'package:azkar/pages/widget/azkar/azkar_full/custom_disc_body.dart';
 export 'package:azkar/pages/widget/azkar/azkar_full/custom_main_body.dart';
 export 'package:azkar/pages/widget/azkar/azkar_full/custom_progress_circle.dart';
 export 'package:azkar/pages/widget/azkar/azkar_full/azkar_build_item.dart';
+export 'package:azkar/pages/widget/hadith/hadith_list/hadith_list_item.dart';

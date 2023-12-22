@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../data/model/hadith_list_model.dart';
+
 class AzkarCubit extends Cubit<AzkarState> {
   AzkarCubit() : super(AppInitialStats());
 
@@ -15,6 +17,7 @@ class AzkarCubit extends Cubit<AzkarState> {
     loadAzkarList();
     loadFavAzkarList();
     loadFavorites();
+    loadHadithList();
   }
 //Azkar Category
 
@@ -90,5 +93,20 @@ class AzkarCubit extends Cubit<AzkarState> {
       emit(AddFavoriteState());
     }
     saveFavorites();
+  }
+
+//Hadith list
+
+  List<HadithListModel> hadithNameList = [];
+  late HadithListModel hadithModel;
+
+  Future<void> loadHadithList() async {
+    rootBundle.loadString("jsonfile/hadithlist.json").then((data) {
+      var response = json.decode(data);
+      response.forEach((e) {
+        hadithModel = HadithListModel.fromJson(e);
+        hadithNameList.add(hadithModel);
+      });
+    }).catchError((error) {});
   }
 }
