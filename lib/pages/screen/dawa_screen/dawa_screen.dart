@@ -17,7 +17,7 @@ class DawaScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const Background(),
+          Background(),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: width(context, 20),
