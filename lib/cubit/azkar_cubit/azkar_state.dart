@@ -13,3 +13,7 @@ final class FavAzkarLoadedState extends AzkarState {}
 final class RemoveFavoriteState extends AzkarState {}
 
 final class AddFavoriteState extends AzkarState {}
+
+final class ListEmptyState extends AzkarState {}
+
+final class FilterListState extends AzkarState {}

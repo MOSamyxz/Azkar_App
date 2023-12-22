@@ -1,20 +1,33 @@
-class SalahTimeModel {
+import 'package:azkar/data/model/salah_time_entity.dart';
+
+class SalahTimeModel extends SalahTimeEntity {
   int? code;
   String? status;
-  List<Data>? data;
+  Data? data;
 
-  SalahTimeModel({this.code, this.status, this.data});
+  SalahTimeModel({this.code, this.status, this.data})
+      : super(
+            gYear: data!.date!.gregorian!.year!,
+            gMonthe: data.date!.gregorian!.month!.en!,
+            gDay: data.date!.gregorian!.day!,
+            gDate: data.date!.gregorian!.date!,
+            hYear: data.date!.hijri!.year!,
+            hMonthe: data.date!.hijri!.month!.ar!,
+            hDay: data.date!.hijri!.day!,
+            isha: data.timings!.isha!,
+            maghrib: data.timings!.maghrib!,
+            asr: data.timings!.asr!,
+            dhuhr: data.timings!.dhuhr!,
+            sunrise: data.timings!.sunrise!,
+            fajr: data.timings!.fajr!);
 
-  SalahTimeModel.fromJson(Map<String, dynamic> json) {
-    code = json['code'];
-    status = json['status'];
-    if (json['data'] != null) {
-      data = <Data>[];
-      json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
-      });
-    }
-  }
+  factory SalahTimeModel.fromJson(Map<String, dynamic> json) => SalahTimeModel(
+        code: json['code'],
+        status: json['status'],
+        data: json['data'] == null
+            ? null
+            : Data.fromJson(json['data'] as Map<String, dynamic>),
+      );
 
   Map<String, dynamic> toJson() {
     return {
@@ -23,7 +36,6 @@ class SalahTimeModel {
       'data': data,
     };
   }
-
 }
 
 class Data {
@@ -47,7 +59,6 @@ class Data {
       'date': date,
     };
   }
-
 }
 
 class Timings {
@@ -105,8 +116,6 @@ class Timings {
       'lastthird': lastthird,
     };
   }
-
-
 }
 
 class Date {
@@ -131,8 +140,6 @@ class Date {
       'hijri': hijri,
     };
   }
-
-
 }
 
 class Gregorian {
@@ -166,8 +173,6 @@ class Gregorian {
       'year': year,
     };
   }
-
-
 }
 
 class GregorianMonth {
@@ -184,8 +189,6 @@ class GregorianMonth {
       'en': en,
     };
   }
-
-
 }
 
 class Hijri {
@@ -221,8 +224,6 @@ class Hijri {
       'year': year,
     };
   }
-
-
 }
 
 class Weekday {
@@ -239,8 +240,6 @@ class Weekday {
       'ar': ar,
     };
   }
-
-
 }
 
 class HijriMonth {
@@ -263,6 +262,4 @@ class HijriMonth {
       'ar': ar,
     };
   }
-
-
 }

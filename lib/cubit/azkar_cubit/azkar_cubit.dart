@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:azkar/cubit/azkar_cubit/azkar_state.dart';
 import 'package:azkar/data/model/azkar_category_list_model.dart';
 import 'package:azkar/data/model/azkar_list_model.dart';
+import 'package:azkar/data/model/countrey_model.dart';
 import 'package:azkar/data/model/fav_azkar_model.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -128,5 +129,48 @@ class AzkarCubit extends Cubit<AzkarState> {
         // }
       });
     }).catchError((error) {});
+  }
+
+//cities
+
+  List<CitiesModel> countryCity = [];
+
+  late CitiesModel cityModel;
+
+  Future<void> loadCountries() async {
+    rootBundle.loadString("jsonfile/citiesaren.json").then((data) {
+      var response = json.decode(data);
+      response.forEach((e) {
+        cityModel = CitiesModel.fromJson(e);
+
+        //   if (hadithDetail.hadithId == model.id) {
+        countryCity.add(cityModel);
+
+        // }
+      });
+    }).catchError((error) {});
+  }
+
+// Search
+  void initSearch() {
+    foundCitis = countryCity;
+  }
+
+  List<CitiesModel> foundCitis = [];
+
+  void search(String query) {
+    List<CitiesModel> result = [];
+    if (query.isEmpty) {
+      result = countryCity;
+      emit(ListEmptyState());
+    } else {
+      result = countryCity
+          .where(
+              (item) => item.name!.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+      emit(FilterListState());
+    }
+    foundCitis = result;
+    emit(FilterListState());
   }
 }
