@@ -1,3 +1,4 @@
+import 'package:azkar/data/model/salah_time_model.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
@@ -7,9 +8,12 @@ class AzkarServices {
   String month = DateFormat.M().format(DateTime.now());
   AzkarServices(this._dio);
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
-    var response = await _dio
-        .get('https://api.aladhan.com/v1/calendarByCity/$year/$month$endPoint');
-    return response.data;
+  Future<SalahTimeModel> getSalahTime(String latitude, String longitude) async {
+    var response = await _dio.get(
+        'https://api.aladhan.com/v1/calendar/$year/$month?latitude=$latitude&longitude=$longitude');
+
+    SalahTimeModel salahTimeModel = SalahTimeModel.fromJson(response.data);
+
+    return salahTimeModel;
   }
 }

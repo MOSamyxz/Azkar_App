@@ -25,4 +25,12 @@ class AppStrings {
   static const String drhazem = 'assets/drhazem.png';
   static const String amirmounir = 'assets/amirmounir.png';
   static const String abdelkafytube = 'assets/abdelkafytube.png';
+
+  //========================salah=========================
+  static const String fajr = 'assets/fajr.png';
+  static const String sunrise = 'assets/sunrise.png';
+  static const String dhuhr = 'assets/dhuhr.png';
+  static const String asr = 'assets/asr.png';
+  static const String maghrib = 'assets/maghrib.png';
+  static const String isha = 'assets/isha.png';
 }

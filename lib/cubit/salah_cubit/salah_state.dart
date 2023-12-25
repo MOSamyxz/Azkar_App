@@ -8,10 +8,20 @@ final class SalahTimeFailState extends SalahState {}
 
 final class SalahTimeLoadingState extends SalahState {}
 
-final class NoSalahTimeState extends SalahState {}
+final class NoInternetState extends SalahState {}
 
-final class SalahTimeSuccesState extends SalahState {
-  List<SalahTimeEntity> salahTimeEntity;
+final class InternetState extends SalahState {}
 
-  SalahTimeSuccesState(this.salahTimeEntity);
+final class SalahSaveState extends SalahState {}
+
+final class SalahTimeSuccesLocalState extends SalahState {
+  List<SalahTimeModel> salahList;
+
+  SalahTimeSuccesLocalState(this.salahList);
+}
+
+final class SalahTimeSuccesRemoteState extends SalahState {
+  SalahTimeModel salahList;
+
+  SalahTimeSuccesRemoteState(this.salahList);
 }

@@ -7,7 +7,6 @@ import 'package:azkar/data/model/fav_azkar_model.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../data/model/hadith_list_model.dart';
 import '../../data/model/hadith_model.dart';
 
@@ -22,6 +21,7 @@ class AzkarCubit extends Cubit<AzkarState> {
     loadHadithList();
     loadHadith();
   }
+
 //Azkar Category
 
   List<AzkarCategoryListModel> azkarCategoryList = [];
@@ -173,4 +173,6 @@ class AzkarCubit extends Cubit<AzkarState> {
     foundCitis = result;
     emit(FilterListState());
   }
+
+  ////
 }

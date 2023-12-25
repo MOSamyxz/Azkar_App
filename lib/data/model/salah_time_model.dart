@@ -1,33 +1,20 @@
-import 'package:azkar/data/model/salah_time_entity.dart';
-
-class SalahTimeModel extends SalahTimeEntity {
+class SalahTimeModel {
   int? code;
   String? status;
-  Data? data;
+  List<Data>? data;
 
-  SalahTimeModel({this.code, this.status, this.data})
-      : super(
-            gYear: data!.date!.gregorian!.year!,
-            gMonthe: data.date!.gregorian!.month!.en!,
-            gDay: data.date!.gregorian!.day!,
-            gDate: data.date!.gregorian!.date!,
-            hYear: data.date!.hijri!.year!,
-            hMonthe: data.date!.hijri!.month!.ar!,
-            hDay: data.date!.hijri!.day!,
-            isha: data.timings!.isha!,
-            maghrib: data.timings!.maghrib!,
-            asr: data.timings!.asr!,
-            dhuhr: data.timings!.dhuhr!,
-            sunrise: data.timings!.sunrise!,
-            fajr: data.timings!.fajr!);
+  SalahTimeModel({this.code, this.status, this.data});
 
-  factory SalahTimeModel.fromJson(Map<String, dynamic> json) => SalahTimeModel(
-        code: json['code'],
-        status: json['status'],
-        data: json['data'] == null
-            ? null
-            : Data.fromJson(json['data'] as Map<String, dynamic>),
-      );
+  SalahTimeModel.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
+    status = json['status'];
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(Data.fromJson(v));
+      });
+    }
+  }
 
   Map<String, dynamic> toJson() {
     return {
@@ -41,23 +28,30 @@ class SalahTimeModel extends SalahTimeEntity {
 class Data {
   Timings? timings;
   Date? date;
-
-  Data({
-    this.timings,
-    this.date,
-  });
+  Meta? meta;
+  Data({this.timings, this.date, this.meta});
 
   Data.fromJson(Map<String, dynamic> json) {
     timings =
         json['timings'] != null ? Timings.fromJson(json['timings']) : null;
     date = json['date'] != null ? Date.fromJson(json['date']) : null;
+    meta = json['meta'] != null ? Meta.fromJson(json['meta']) : null;
   }
 
   Map<String, dynamic> toJson() {
     return {
       'timings': timings,
       'date': date,
+      'meta': meta,
     };
+  }
+}
+
+class Meta {
+  String? timeZone;
+  Meta(this.timeZone);
+  Meta.fromJson(Map<String, dynamic> json) {
+    timeZone = json['timezone'];
   }
 }
 
@@ -177,16 +171,19 @@ class Gregorian {
 
 class GregorianMonth {
   String? en;
+  int? number;
 
-  GregorianMonth({this.en});
+  GregorianMonth({this.en, this.number});
 
   GregorianMonth.fromJson(Map<String, dynamic> json) {
     en = json['en'];
+    number = json['number'];
   }
 
   Map<String, dynamic> toJson() {
     return {
       'en': en,
+      'number': number,
     };
   }
 }
