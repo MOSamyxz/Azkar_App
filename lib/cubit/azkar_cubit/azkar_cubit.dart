@@ -1,9 +1,12 @@
 import 'dart:convert';
+import 'package:azkar/core/services/cache_helper.dart';
 import 'package:azkar/cubit/azkar_cubit/azkar_state.dart';
 import 'package:azkar/data/model/azkar_category_list_model.dart';
 import 'package:azkar/data/model/azkar_list_model.dart';
 import 'package:azkar/data/model/countrey_model.dart';
 import 'package:azkar/data/model/fav_azkar_model.dart';
+import 'package:azkar/data/model/moshaf_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,8 +23,74 @@ class AzkarCubit extends Cubit<AzkarState> {
     loadFavorites();
     loadHadithList();
     loadHadith();
+    lodaQuran();
+    loadPage();
+    loadHPage();
+    getTime();
   }
 
+//Quran
+  List<MoshafModel> moshafList = [];
+  late MoshafModel moshafModel;
+
+  Future lodaQuran() async {
+    rootBundle.loadString("jsonfile/hafs_smart_v8.json").then((data) {
+      var response = json.decode(data);
+      response.forEach((e) {
+        moshafModel = MoshafModel.fromJson(e);
+
+        //   if (hadithDetail.hadithId == model.id) {
+        moshafList.add(moshafModel);
+        // }
+      });
+    }).catchError((error) {});
+  }
+
+  int savedPage = 0;
+
+  void savePage(int page) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt('page', page);
+    emit(PageSaveStat());
+  }
+
+  Future<void> loadPage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final sharedPage = prefs.getInt('page');
+
+    savedPage = sharedPage ?? 0;
+    emit(PageLoadStat());
+  }
+
+  void removePage() async {
+    savedPage = 0;
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove('page');
+    emit(PageRemoveStat());
+  }
+
+  int savedHPage = 0;
+
+  void saveHPage(int page) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt('hpage', page);
+    emit(HPageSaveStat());
+  }
+
+  Future<void> loadHPage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final sharedHPage = prefs.getInt('hpage');
+
+    savedHPage = sharedHPage ?? 0;
+    emit(HPageLoadStat());
+  }
+
+  void removeHPage() async {
+    savedHPage = 0;
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove('hpage');
+    emit(HPageRemoveStat());
+  }
 //Azkar Category
 
   List<AzkarCategoryListModel> azkarCategoryList = [];
@@ -174,5 +243,22 @@ class AzkarCubit extends Cubit<AzkarState> {
     emit(FilterListState());
   }
 
-  ////
+  /// Notification Time
+
+  void setTime(context) async {
+    TimeOfDay? pickedDate = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+    if (pickedDate != null) {
+      CacheHelper.setInt(key: 'sNotificationH', value: pickedDate.hour);
+      CacheHelper.setInt(key: 'sNotificationM', value: pickedDate.minute);
+      getTime();
+    }
+  }
+
+  void getTime() {
+    CacheHelper.getInt(key: 'sNotificationH');
+    CacheHelper.getInt(key: 'sNotificationM');
+  }
 }

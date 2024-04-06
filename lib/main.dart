@@ -1,5 +1,7 @@
 import 'package:azkar/core/constants/theme.dart';
 import 'package:azkar/core/services/cache_helper.dart';
+import 'package:azkar/core/services/local_notification_service.dart';
+import 'package:azkar/core/services/work_manager_service.dart';
 import 'package:azkar/cubit/azkar_cubit/azkar_cubit.dart';
 import 'package:azkar/cubit/theme_cubit/cubit.dart';
 import 'package:azkar/cubit/theme_cubit/state.dart';
@@ -10,8 +12,11 @@ import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initializeDateFormatting("ar_SA", null);
   await CacheHelper.init();
+  await WorkManagerService().init();
+  await AwesomeNotificationServices().initializeNotifications();
+  await AwesomeNotificationServices().initHourly();
+  initializeDateFormatting("ar_SA", null);
   bool? isDark = CacheHelper.getBoolean(key: 'isDark');
   runApp(MyApp(isDark));
 }

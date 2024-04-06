@@ -1,11 +1,13 @@
 import 'package:azkar/core/constants/images.dart';
 import 'package:azkar/data/model/category_model.dart';
+import 'package:azkar/pages/screen/moshaf_screen/moshaf_list_screen.dart';
 import 'package:azkar/pages/screen/screens.dart';
 
 final List<CategoryModel> categoryModel = [
-  CategoryModel(text: 'الأذكار', image: AppImages.azkar, widget: AzkarScreen()),
   const CategoryModel(
-      text: 'المصحف', image: AppImages.moshaf, widget: MoshafScreen()),
+      text: 'الأذكار', image: AppImages.azkar, widget: AzkarScreen()),
+  const CategoryModel(
+      text: 'المصحف', image: AppImages.moshaf, widget: MoshafList()),
   const CategoryModel(
       text: 'أوقات الصلاة', image: AppImages.salah, widget: SalahScreen()),
   const CategoryModel(

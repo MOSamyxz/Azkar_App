@@ -20,80 +20,83 @@ class AzkarBuildScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AzkarBuildCubit, AzkarBuildState>(
-      builder: (context, state) {
-        //PopUp when press back button function
-        Future<bool> showExitPopUp() async {
-          return BlocProvider.of<AzkarBuildCubit>(context).showExitPopup(
-              context, azkar.length, azkar[azkar.length - 1].count!);
-        }
+    return BlocProvider(
+      create: (context) => AzkarBuildCubit()..initState(context, azkar.length),
+      child: BlocBuilder<AzkarBuildCubit, AzkarBuildState>(
+        builder: (context, state) {
+          //PopUp when press back button function
+          Future<bool> showExitPopUp() async {
+            return BlocProvider.of<AzkarBuildCubit>(context).showExitPopup(
+                context, azkar.length, azkar[azkar.length - 1].count!);
+          }
 
-        var cubit = BlocProvider.of<AzkarBuildCubit>(context);
-        return Scaffold(
-            body: WillPopScope(
-          onWillPop: showExitPopUp,
-          child: Stack(
-            children: [
-              const Background(),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SizedBox(
-                    height: height(context, 56),
-                  ),
-                  CustomAppBar(
-                    title: body,
-                    onTap: () {
-                      if (cubit.currentPageIndex == azkar.length - 1 &&
-                          cubit.counters[azkar.length - 1] ==
-                              azkar[azkar.length - 1].count!) {
-                        navigateBack(context);
-                      } else {
-                        cubit.showAlertDialog(
-                          context,
-                          'انت لم تنتهي بعد \n هل انت متأكد من رغبتك بالخروج ؟',
-                        );
-                      }
-                    },
-                  ),
-                  SizedBox(
-                    height: height(context, 15),
-                  ),
-                  Expanded(
-                    child: PageView.builder(
-                      reverse: true,
-                      itemCount: azkar.length,
-                      controller: cubit.pageController,
-                      onPageChanged: (index) {
-                        cubit.currentPageIndex = index;
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        return AzkarBuildItem(
-                          index: index,
-                          onTap: () {
-                            if (cubit.counters[index] < azkar[index].count!) {
-                              cubit.incrementCounter(context, azkar.length,
-                                  azkar[cubit.currentPageIndex].count!, body);
-                            }
-                          },
-                          disc: azkar[index].description,
-                          mainBody: azkar[index].body,
-                          count: azkar[index].count!,
-                          counter: cubit.counters[index],
-                          leanght: azkar.length,
-                        );
+          var cubit = BlocProvider.of<AzkarBuildCubit>(context);
+          return Scaffold(
+              body: WillPopScope(
+            onWillPop: showExitPopUp,
+            child: Stack(
+              children: [
+                const Background(),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SizedBox(
+                      height: height(context, 56),
+                    ),
+                    CustomAppBar(
+                      title: body,
+                      onTap: () {
+                        if (cubit.currentPageIndex == azkar.length - 1 &&
+                            cubit.counters[azkar.length - 1] ==
+                                azkar[azkar.length - 1].count!) {
+                          navigateBack(context);
+                        } else {
+                          cubit.showAlertDialog(
+                            context,
+                            'انت لم تنتهي بعد \n هل انت متأكد من رغبتك بالخروج ؟',
+                          );
+                        }
                       },
                     ),
-                  ),
-                  SizedBox(
-                    height: height(context, 10),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ));
-      },
+                    SizedBox(
+                      height: height(context, 15),
+                    ),
+                    Expanded(
+                      child: PageView.builder(
+                        reverse: true,
+                        itemCount: azkar.length,
+                        controller: cubit.pageController,
+                        onPageChanged: (index) {
+                          cubit.currentPageIndex = index;
+                        },
+                        itemBuilder: (BuildContext context, int index) {
+                          return AzkarBuildItem(
+                            index: index,
+                            onTap: () {
+                              if (cubit.counters[index] < azkar[index].count!) {
+                                cubit.incrementCounter(context, azkar.length,
+                                    azkar[cubit.currentPageIndex].count!, body);
+                              }
+                            },
+                            disc: azkar[index].description,
+                            mainBody: azkar[index].body,
+                            count: azkar[index].count!,
+                            counter: cubit.counters[index],
+                            leanght: azkar.length,
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: height(context, 10),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ));
+        },
+      ),
     );
   }
 }

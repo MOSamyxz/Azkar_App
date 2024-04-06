@@ -29,6 +29,8 @@ class SalahTimeEntity {
   final String sunrise;
   @HiveField(12)
   final String fajr;
+  @HiveField(13)
+  final String gMonthNum;
 
   SalahTimeEntity({
     required this.gYear,
@@ -44,5 +46,6 @@ class SalahTimeEntity {
     required this.dhuhr,
     required this.sunrise,
     required this.fajr,
+    required this.gMonthNum,
   });
 }

@@ -21,23 +21,25 @@ class HomeScreen extends StatelessWidget {
             body: Stack(
               children: [
                 Background(),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: height(context, 56),
-                    ),
-                    HomeDateBar(),
-                    SizedBox(
-                      height: height(context, 15),
-                    ),
-                    BlocBuilder<HomeCubit, HomeState>(
-                      builder: (context, state) {
-                        return AyaCard();
-                      },
-                    ),
-                    SizedBox(height: height(context, 15)),
-                    HomeWarpView()
-                  ],
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: height(context, 56),
+                      ),
+                      const HomeDateBar(),
+                      SizedBox(
+                        height: height(context, 15),
+                      ),
+                      BlocBuilder<HomeCubit, HomeState>(
+                        builder: (context, state) {
+                          return const AyaCard();
+                        },
+                      ),
+                      SizedBox(height: height(context, 15)),
+                      const HomeWarpView()
+                    ],
+                  ),
                 ),
               ],
             ),

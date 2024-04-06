@@ -38,7 +38,6 @@ class SplashCubit extends Cubit<SplashState> {
   @override
   Future<void> close() {
     animationController.dispose();
-    print('disposed');
 
     return super.close();
   }

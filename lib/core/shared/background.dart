@@ -17,8 +17,8 @@ class Background extends StatelessWidget {
       width: double.infinity,
       // ignore: deprecated_member_use
       color: BlocProvider.of<ThemeCubit>(context).isDark
-          ? Color.fromARGB(255, 34, 34, 34)
-          : AppColors.greyLightClr,
+          ? AppColors.greyLightClr.withOpacity(0.2)
+          : AppColors.greyDarkClr.withOpacity(0.25),
       fit: BoxFit.cover,
     );
   }

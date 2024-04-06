@@ -22,7 +22,7 @@ ThemeData lightTheme = ThemeData(
 ThemeData darkTheme = ThemeData(
   useMaterial3: false,
   brightness: Brightness.dark,
-  scaffoldBackgroundColor: AppColors.darkScaffold,
+  scaffoldBackgroundColor: const Color(0xff323232),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
       color: AppColors.accentClr,

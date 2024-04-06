@@ -16,16 +16,6 @@ class AppStrings {
 //========================Daawa=========================
   static const String daawaButton = 'assets/daawa_button.png';
 
-  static const String waai = 'assets/waai.png';
-  static const String way2allahcom = 'assets/way2allahcom.png';
-  static const String othmanalkamees = 'assets/othmanalkamees.png';
-  static const String mohelghaleez = 'assets/mohelghaleez.png';
-  static const String makanyworld = 'assets/makanyworld.png';
-  static const String itsthequranofficial = 'assets/itsthequranofficial.png';
-  static const String drhazem = 'assets/drhazem.png';
-  static const String amirmounir = 'assets/amirmounir.png';
-  static const String abdelkafytube = 'assets/abdelkafytube.png';
-
   //========================salah=========================
   static const String fajr = 'assets/fajr.png';
   static const String sunrise = 'assets/sunrise.png';

@@ -18,7 +18,7 @@ class SebhaCubit extends Cubit<SebhaState> {
   }
 
   Future<void> loadCounter() async {
-    int? savedCounter = await CacheHelper.getInt(key: 'counter');
+    int? savedCounter =  CacheHelper.getInt(key: 'counter');
 
     index = savedCounter ?? 0;
     emit(CounterLoadStat());

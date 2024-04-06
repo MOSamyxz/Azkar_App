@@ -103,6 +103,14 @@ class AppCard extends StatelessWidget {
         paddingBottom = const EdgeInsets.all(5.0),
         super(key: key);
 
+  AppCard.moshafList({Key? key, required this.child, required this.context})
+      : cHeight = height(context, 77),
+        cWidth = width(context, 350),
+        zHeight = height(context, 48.23),
+        zWidth = width(context, 50.5),
+        paddingTop = const EdgeInsets.all(5.0),
+        paddingBottom = const EdgeInsets.all(5.0),
+        super(key: key);
   AppCard.hadith(
       {Key? key, required this.child, required this.context, this.cHeight})
       : cWidth = double.infinity,

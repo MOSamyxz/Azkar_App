@@ -25,3 +25,15 @@ final class SalahTimeLoadingState extends AzkarState {}
 final class NoSalahTimeState extends AzkarState {}
 
 final class SalahLoadState extends AzkarState {}
+
+final class PageLoadStat extends AzkarState {}
+
+final class PageSaveStat extends AzkarState {}
+
+final class PageRemoveStat extends AzkarState {}
+
+final class HPageLoadStat extends AzkarState {}
+
+final class HPageSaveStat extends AzkarState {}
+
+final class HPageRemoveStat extends AzkarState {}

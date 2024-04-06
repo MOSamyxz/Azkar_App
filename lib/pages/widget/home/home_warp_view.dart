@@ -12,26 +12,24 @@ class HomeWarpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Wrap(
-        direction: Axis.horizontal,
-        spacing: width(context, 10),
-        runSpacing: height(context, 10),
-        children: List.generate(6, (index) {
-          return GestureDetector(
-            onTap: () {
-              navigatWithSlideAnimation(categoryModel[index].widget,
-                  context: context);
-            },
-            child: AppCard.home(
-              context: context,
-              child: InHomeCard(
-                index: index,
-              ),
+    return Wrap(
+      direction: Axis.horizontal,
+      spacing: width(context, 10),
+      runSpacing: height(context, 10),
+      children: List.generate(6, (index) {
+        return GestureDetector(
+          onTap: () {
+            navigatWithSlideAnimation(categoryModel[index].widget,
+                context: context);
+          },
+          child: AppCard.home(
+            context: context,
+            child: InHomeCard(
+              index: index,
             ),
-          );
-        }),
-      ),
+          ),
+        );
+      }),
     );
   }
 }

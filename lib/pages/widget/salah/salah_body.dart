@@ -1,7 +1,9 @@
+import 'package:azkar/core/constants/colors.dart';
 import 'package:azkar/core/constants/size.dart';
 import 'package:azkar/core/functions/get_duration_to_next_salah.dart';
 import 'package:azkar/core/functions/get_next_salah_name.dart';
 import 'package:azkar/cubit/salah_cubit/salah_cubit.dart';
+import 'package:azkar/cubit/theme_cubit/cubit.dart';
 
 import 'package:azkar/pages/widget/widgets.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +43,34 @@ class SalahScreenBody extends StatelessWidget {
             ),
           );
         } else {
-          return const CircularProgressIndicator();
+          return Align(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: height(context, 300),
+                ),
+                const CircularProgressIndicator(
+                  color: AppColors.mainClr,
+                ),
+                SizedBox(
+                  height: height(context, 20),
+                ),
+                Text('برجاء الانتظار حتى يتم تحديد الموقع',
+                    style: TextStyle(
+                      fontFamily: 'KFGQPC',
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: BlocProvider.of<ThemeCubit>(context).isDark
+                          ? const Color.fromARGB(255, 184, 182, 182)
+                          : const Color.fromARGB(255, 148, 146, 146),
+                    )),
+              ],
+            ),
+          );
         }
       },
     );

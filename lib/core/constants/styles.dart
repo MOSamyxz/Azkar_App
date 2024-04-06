@@ -51,8 +51,8 @@ TextStyle dialogText = const TextStyle(
     fontFamily: 'KFGQPC',
     color: AppColors.mainClr);
 
-TextStyle cityName = const TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 16,
-    fontFamily: 'KFGQPC',
-    color: Colors.black);
+TextStyle settings = const TextStyle(
+  fontWeight: FontWeight.w400,
+  fontSize: 20,
+  fontFamily: 'KFGQPC',
+);

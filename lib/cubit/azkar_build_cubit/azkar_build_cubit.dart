@@ -29,7 +29,7 @@ class AzkarBuildCubit extends Cubit<AzkarBuildState> {
         counters[currentPageIndex] == aCount) {
       currentPageIndex++;
       pageController.nextPage(
-        duration: const Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.decelerate,
       );
       emit(PageChangedState());
@@ -37,7 +37,7 @@ class AzkarBuildCubit extends Cubit<AzkarBuildState> {
         counters[currentPageIndex] == aCount) {
       showAlertDialog(
         context,
-        'تهانينا ..! \n لقد أنهيت $body',
+        'تقبل الله منا ومنكم صالح الاعمال ..! \n لقد أنهيت $body',
       );
     }
   }
@@ -62,6 +62,7 @@ class AzkarBuildCubit extends Cubit<AzkarBuildState> {
                       height: height(context, 100),
                       child: Text(body,
                           textAlign: TextAlign.center,
+                          textDirection: TextDirection.rtl,
                           style: const TextStyle(
                               decoration: TextDecoration.none,
                               fontWeight: FontWeight.w700,

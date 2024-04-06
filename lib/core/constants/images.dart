@@ -66,4 +66,7 @@ class AppImages {
   static const String drhazem = '${rootImages}drhazem.png';
   static const String amirmounir = '${rootImages}amirmounir.png';
   static const String abdelkafytube = '${rootImages}abdelkafytube.png';
+  static const String swa3ed = '${rootImages}swa3ed.png';
+  static const String qlby = '${rootImages}qlby.png';
+  static const String fhdsalem = '${rootImages}fhd_salem.png';
 }

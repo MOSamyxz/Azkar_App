@@ -30,6 +30,7 @@ class SalahTimeEntityAdapter extends TypeAdapter<SalahTimeEntity> {
       dhuhr: fields[10] as String,
       sunrise: fields[11] as String,
       fajr: fields[12] as String,
+      gMonthNum: fields[13] as String,
     );
   }
 
@@ -62,7 +63,9 @@ class SalahTimeEntityAdapter extends TypeAdapter<SalahTimeEntity> {
       ..writeByte(11)
       ..write(obj.sunrise)
       ..writeByte(12)
-      ..write(obj.fajr);
+      ..write(obj.fajr)
+      ..writeByte(13)
+      ..write(obj.gMonthNum);
   }
 
   @override

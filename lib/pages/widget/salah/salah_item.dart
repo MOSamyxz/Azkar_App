@@ -26,8 +26,9 @@ class SalahItem extends StatelessWidget {
           width: width(context, 20),
         ),
         Text(
-          DateFormat('K:mm ')
+          DateFormat('h:mm a ')
               .format(DateFormat('HH:mm').parse(time.split(' ')[0]))
+              .split(' ')[0]
               .toArabicNumbers,
           style: TextStyle(
             fontSize: 20,
