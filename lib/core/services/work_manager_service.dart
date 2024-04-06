@@ -30,7 +30,6 @@ class WorkManagerService {
 void actionTask() {
   //show notification
   Workmanager().executeTask((taskName, inputData) {
-    AwesomeNotificationServices().triggerRandomIndex;
 
     return Future.value(true);
   });
