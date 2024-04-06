@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:azkar/core/services/cache_helper.dart';
-import 'package:azkar/data/datasource/static/azkar_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -198,9 +197,4 @@ class AwesomeNotificationServices {
     );
   }
 
-  int triggerRandomIndex() {
-    final Random random = Random();
-    final int randomIndex = random.nextInt(azkarAndAdhkar.length);
-    return randomIndex;
-  }
 }
