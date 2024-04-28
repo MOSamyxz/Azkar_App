@@ -1,5 +1,6 @@
 import 'package:azkar/core/constants/size.dart';
 import 'package:azkar/core/functions/function.dart';
+import 'package:azkar/pages/screen/moshaf_screen/moshaf_screen.dart';
 import 'package:azkar/pages/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -77,6 +78,15 @@ class AzkarBuildScreen extends StatelessWidget {
                                 cubit.incrementCounter(context, azkar.length,
                                     azkar[cubit.currentPageIndex].count!, body);
                               }
+                            },
+                            needButton: body == 'أذكار النوم' && index == 13
+                                ? true
+                                : false,
+                            textButton: 'الذهاب للسورة',
+                            onTapButton: () {
+                              navigatWithSlideAnimation(
+                                  const MoshafScreen(targetPage: 415),
+                                  context: context);
                             },
                             disc: azkar[index].description,
                             mainBody: azkar[index].body,

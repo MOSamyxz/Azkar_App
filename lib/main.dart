@@ -1,7 +1,6 @@
 import 'package:azkar/core/constants/theme.dart';
 import 'package:azkar/core/services/cache_helper.dart';
 import 'package:azkar/core/services/local_notification_service.dart';
-import 'package:azkar/core/services/work_manager_service.dart';
 import 'package:azkar/cubit/azkar_cubit/azkar_cubit.dart';
 import 'package:azkar/cubit/theme_cubit/cubit.dart';
 import 'package:azkar/cubit/theme_cubit/state.dart';

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:azkar/core/services/cache_helper.dart';
 import 'package:flutter/material.dart';
@@ -196,5 +194,4 @@ class AwesomeNotificationServices {
           allowWhileIdle: true),
     );
   }
-
 }

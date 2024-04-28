@@ -13,6 +13,9 @@ class AzkarBuildItem extends StatelessWidget {
     required this.leanght,
     required this.counter,
     required this.count,
+    this.needButton = false,
+    this.textButton,
+    this.onTapButton,
   });
 
   final int index;
@@ -22,6 +25,9 @@ class AzkarBuildItem extends StatelessWidget {
   final String mainBody;
   final String disc;
   final void Function() onTap;
+  final bool needButton;
+  final String? textButton;
+  final void Function()? onTapButton;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -45,6 +51,26 @@ class AzkarBuildItem extends StatelessWidget {
                       child: Column(
                         children: [
                           CustomMainBody(mainBody: mainBody, index: index),
+                          SizedBox(
+                            height: height(context, 5),
+                          ),
+                          needButton
+                              ? MaterialButton(
+                                  elevation: 0,
+                                  color: AppColors.mainClr,
+                                  onPressed: onTapButton,
+                                  //return false when click on "NO"
+                                  child: Text(
+                                    textButton ?? '',
+                                    style: const TextStyle(
+                                        decoration: TextDecoration.none,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16,
+                                        fontFamily: 'KFGQPC',
+                                        color: Colors.white),
+                                  ),
+                                )
+                              : const SizedBox(),
                           SizedBox(
                             height: height(context, 5),
                           ),

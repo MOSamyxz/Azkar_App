@@ -12,8 +12,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ThemeCubit, ThemeState>(
-      listener: (context, state) {},
+    return BlocBuilder<ThemeCubit, ThemeState>(
       builder: (context, state) {
         return BlocProvider(
           create: (context) => HomeCubit()..initRandomText(),
@@ -33,11 +32,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                       BlocBuilder<HomeCubit, HomeState>(
                         builder: (context, state) {
-                          return const AyaCard();
+                          return AyaCard();
                         },
                       ),
                       SizedBox(height: height(context, 15)),
-                      const HomeWarpView()
+                      HomeWarpView()
                     ],
                   ),
                 ),
