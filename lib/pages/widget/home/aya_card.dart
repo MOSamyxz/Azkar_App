@@ -32,7 +32,7 @@ class AyaCard extends StatelessWidget {
                     : AppColors.accentClr.withOpacity(0.2))),
         Padding(
           padding: EdgeInsets.only(
-            top: height(context, 16),
+            top: height(context, 8),
             right: width(context, 24),
             left: width(context, 24),
           ),
@@ -42,11 +42,11 @@ class AyaCard extends StatelessWidget {
                 'ايه اليوم',
                 style: TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'DG_Kufi',
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Gamila',
                     color: BlocProvider.of<ThemeCubit>(context).isDark
                         ? AppColors.mainClr
-                        : Colors.white),
+                        : AppColors.accentClr),
               ),
               SizedBox(
                 height: height(context, 10),
@@ -60,9 +60,9 @@ class AyaCard extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'DG_Kufi',
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Gamila',
                         color: Colors.white),
                   ),
                   SizedBox(
@@ -79,9 +79,9 @@ class AyaCard extends StatelessWidget {
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'DG_Kufi',
+                              fontSize: 12,
+                              fontWeight: FontWeight.w800,
+                              fontFamily: 'Gamila',
                               color: BlocProvider.of<ThemeCubit>(context).isDark
                                   ? AppColors.mainClr
                                   : Colors.white),

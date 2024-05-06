@@ -35,10 +35,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  
+
   # State managment
   bloc: ^8.1.4
   flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
 
   # API
   url_launcher: ^6.0.10
@@ -141,6 +142,14 @@ flutter:
     - family: me_quran
       fonts:
         - asset: fonts/me_quran.ttf
+    - family: Gamila 
+      fonts:
+        - asset: fonts/GamilaArabicBold.otf
+        - asset: fonts/GamilaArabicSemi Bold.otf
+        - asset: fonts/GamilaArabicLight.otf
+        - asset: fonts/GamilaArabicMedium.otf
+        - asset: fonts/GamilaArabicRegular.otf
+        - asset: fonts/GamilaRegular.otf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

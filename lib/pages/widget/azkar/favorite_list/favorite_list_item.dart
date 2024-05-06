@@ -48,9 +48,9 @@ class FavoriteListItem extends StatelessWidget {
                         model.name!,
                         textAlign: TextAlign.right,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            fontFamily: 'DG_Kufi',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: 'Gamila',
                             color: AppColors.mainClr),
                       ),
                     ),

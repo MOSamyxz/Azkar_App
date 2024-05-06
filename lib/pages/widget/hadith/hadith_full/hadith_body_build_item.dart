@@ -19,9 +19,9 @@ class HadithBodyBuildItem extends StatelessWidget {
       textAlign: TextAlign.right,
       textDirection: TextDirection.rtl,
       style: TextStyle(
-        fontFamily: 'KFGQPC',
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
+        fontFamily: 'Gamila',
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
         color: BlocProvider.of<ThemeCubit>(context).isDark
             ? const Color.fromARGB(255, 184, 182, 182)
             : Color.fromARGB(255, 148, 146, 146),

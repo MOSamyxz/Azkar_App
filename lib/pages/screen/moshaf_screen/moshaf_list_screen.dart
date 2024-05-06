@@ -120,9 +120,9 @@ class MoshafList extends StatelessWidget {
                                       Text(
                                         '${surahNo[index]['name']}',
                                         style: const TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            fontFamily: 'DG_Kufi',
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                            fontFamily: 'Gamila',
                                             color: AppColors.mainClr),
                                       ),
                                       Padding(
@@ -137,18 +137,13 @@ class MoshafList extends StatelessWidget {
                                                 width: width(context, 35),
                                                 height: height(context, 35),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 4.0),
-                                                child: Text(
-                                                  arNum,
-                                                  style: const TextStyle(
-                                                      fontSize: 11,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontFamily: 'DG_Kufi',
-                                                      color: AppColors.mainClr),
-                                                ),
+                                              Text(
+                                                arNum,
+                                                style: const TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily: 'Gamila',
+                                                    color: AppColors.mainClr),
                                               )
                                             ],
                                           ))

@@ -39,16 +39,16 @@ class InAzkarCard extends StatelessWidget {
           model.name!,
           textAlign: TextAlign.center,
           style:
-              Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 12),
+              Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 14),
         ),
         Text(
           model.number! >= 9
               ? "${model.number!.toArabicNumbers} ذكر"
               : "${model.number!.toArabicNumbers} أذكار",
           style: const TextStyle(
-              fontSize: 16,
-              fontFamily: 'KFGQPC',
-              fontWeight: FontWeight.w400,
+              fontSize: 11,
+              fontFamily: 'Gamila',
+              fontWeight: FontWeight.bold,
               color: AppColors.mainClr),
           textAlign: TextAlign.center,
           textDirection: TextDirection.rtl,

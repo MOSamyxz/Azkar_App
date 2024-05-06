@@ -26,8 +26,8 @@ class NextSalahCard extends StatelessWidget {
                 'الوقت المتبقي حتى صلاة $salah',
                 style: const TextStyle(
                     fontWeight: FontWeight.w700,
-                    fontSize: 16,
-                    fontFamily: 'KFGQPC',
+                    fontSize: 12,
+                    fontFamily: 'Gamila',
                     color: AppColors.mainClr),
               ),
               child

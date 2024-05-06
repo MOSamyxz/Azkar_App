@@ -1,3 +1,4 @@
+import 'package:azkar/core/functions/to_ar_conv.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/colors.dart';
@@ -26,16 +27,13 @@ class HadithListNumber extends StatelessWidget {
             width: width(context, 32.5),
             height: height(context, 32.5),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Text(
-              '${model.hadithNumber}',
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'DG_Kufi',
-                  color: AppColors.mainClr),
-            ),
+          Text(
+            model.hadithNumber!.toArabicNumbers,
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Gamila',
+                color: AppColors.mainClr),
           )
         ],
       ),

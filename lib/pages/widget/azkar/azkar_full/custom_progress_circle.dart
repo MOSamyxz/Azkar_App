@@ -28,9 +28,9 @@ class CustomProgressCircle extends StatelessWidget {
             Text(
               ' / ${aLeanght.toArabicNumbers}  ',
               style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                  fontFamily: 'DG_Kufi',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  fontFamily: 'Gamila',
                   color: AppColors.darkClr),
               textAlign: TextAlign.right,
               textDirection: TextDirection.rtl,
@@ -38,9 +38,9 @@ class CustomProgressCircle extends StatelessWidget {
             Text(
               i.toArabicNumbers,
               style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                  fontFamily: 'DG_Kufi',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                  fontFamily: 'Gamila',
                   color: AppColors.mainClr),
               textAlign: TextAlign.left,
               textDirection: TextDirection.rtl,
@@ -63,18 +63,15 @@ class CustomProgressCircle extends StatelessWidget {
                 color: AppColors.mainClr,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: Text(
-                counter.toArabicNumbers,
-                style: const TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 28,
-                    fontFamily: 'DG_Kufi',
-                    color: AppColors.mainClr),
-                textAlign: TextAlign.center,
-                // textDirection: TextDirection.rtl,
-              ),
+            Text(
+              counter.toArabicNumbers,
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  fontFamily: 'Gamila',
+                  color: AppColors.mainClr),
+              textAlign: TextAlign.center,
+              // textDirection: TextDirection.rtl,
             ),
           ],
         ),
@@ -92,9 +89,9 @@ class CustomProgressCircle extends StatelessWidget {
             textAlign: TextAlign.left,
             textDirection: TextDirection.rtl,
             style: const TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                fontFamily: 'DG_Kufi',
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                fontFamily: 'Gamila',
                 color: AppColors.mainClr)),
       ],
     );

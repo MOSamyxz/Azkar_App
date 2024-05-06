@@ -31,7 +31,9 @@ class SalahItem extends StatelessWidget {
               .split(' ')[0]
               .toArabicNumbers,
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            fontFamily: 'Gamila',
             color: BlocProvider.of<ThemeCubit>(context).isDark
                 ? Colors.white
                 : Colors.black.withOpacity(0.7),
@@ -42,7 +44,8 @@ class SalahItem extends StatelessWidget {
           salah,
           style: TextStyle(
               fontWeight: FontWeight.w700,
-              fontSize: 20,
+              fontSize: 16,
+              fontFamily: 'Gamila',
               color: BlocProvider.of<ThemeCubit>(context).isDark
                   ? Colors.white
                   : Colors.black.withOpacity(0.7)),

@@ -71,9 +71,9 @@ class DaawaItem extends StatelessWidget {
                           Text(
                             daawaModel[index].name,
                             style: const TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                fontFamily: 'DG_Kufi',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                fontFamily: 'Gamila',
                                 color: Colors.white),
                           ),
                         ],

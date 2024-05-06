@@ -8,14 +8,14 @@ ThemeData lightTheme = ThemeData(
   textTheme: const TextTheme(
     displayLarge: TextStyle(
       color: AppColors.darkClr,
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-      fontFamily: 'DG_Kufi',
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      fontFamily: 'Gamila',
     ),
     displayMedium: TextStyle(
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.bold,
         fontSize: 14,
-        fontFamily: 'DG_Kufi',
+        fontFamily: 'Gamila',
         color: AppColors.mainClr),
   ),
 );
@@ -26,14 +26,14 @@ ThemeData darkTheme = ThemeData(
   textTheme: const TextTheme(
     displayLarge: TextStyle(
       color: AppColors.accentClr,
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-      fontFamily: 'DG_Kufi',
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      fontFamily: 'Gamila',
     ),
     displayMedium: TextStyle(
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.bold,
         fontSize: 14,
-        fontFamily: 'DG_Kufi',
+        fontFamily: 'Gamila',
         color: AppColors.mainClr),
   ),
 );

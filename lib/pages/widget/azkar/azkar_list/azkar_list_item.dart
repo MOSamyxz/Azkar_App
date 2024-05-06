@@ -54,9 +54,9 @@ class AzkarListItem extends StatelessWidget {
                       child: Text(
                         model.azkar![index].name!,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 12,
-                            fontFamily: 'DG_Kufi',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: 'Gamila',
                             color: AppColors.mainClr),
                         textDirection: TextDirection.rtl,
                       ),

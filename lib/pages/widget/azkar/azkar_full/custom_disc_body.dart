@@ -18,7 +18,7 @@ class CustomDiscText extends StatelessWidget {
     return Text(
       disc,
       style: TextStyle(
-        fontFamily: 'KFGQPC',
+        fontFamily: 'Gamila',
         fontSize: 16,
         fontWeight: FontWeight.w700,
         color: BlocProvider.of<ThemeCubit>(context).isDark

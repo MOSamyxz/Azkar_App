@@ -13,7 +13,11 @@ class LocationItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(BlocProvider.of<SalahCubit>(context).city),
+        Text(
+          BlocProvider.of<SalahCubit>(context).city,
+          style: TextStyle(
+              fontFamily: 'Gamila', fontSize: 12, fontWeight: FontWeight.w500),
+        ),
         SizedBox(
           width: width(context, 10),
         ),

@@ -61,9 +61,9 @@ class SalahScreenBody extends StatelessWidget {
                 ),
                 Text('برجاء الانتظار حتى يتم تحديد الموقع',
                     style: TextStyle(
-                      fontFamily: 'KFGQPC',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
+                      fontFamily: 'Gamila',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                       color: BlocProvider.of<ThemeCubit>(context).isDark
                           ? const Color.fromARGB(255, 184, 182, 182)
                           : const Color.fromARGB(255, 148, 146, 146),

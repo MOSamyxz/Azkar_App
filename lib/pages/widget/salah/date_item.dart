@@ -21,7 +21,7 @@ class DateItem extends StatelessWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
-                fontFamily: 'KFGQPC',
+                fontFamily: 'Gamila',
                 color: BlocProvider.of<ThemeCubit>(context).isDark
                     ? Colors.white
                     : Colors.black.withOpacity(0.7))),
@@ -29,8 +29,8 @@ class DateItem extends StatelessWidget {
           '${state.salahList.data![DateTime.now().day - 1].date!.hijri!.day!.toArabicNumbers} ${state.salahList.data![DateTime.now().day - 1].date!.hijri!.month!.ar!} ${state.salahList.data![DateTime.now().day - 1].date!.hijri!.year!.toArabicNumbers} هـ',
           style: TextStyle(
               fontWeight: FontWeight.w700,
-              fontSize: 26,
-              fontFamily: 'KFGQPC',
+              fontSize: 22,
+              fontFamily: 'Gamila',
               color: BlocProvider.of<ThemeCubit>(context).isDark
                   ? Colors.white
                   : Colors.black),
@@ -40,7 +40,7 @@ class DateItem extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 16,
-              fontFamily: 'KFGQPC',
+              fontFamily: 'Gamila',
               color: BlocProvider.of<ThemeCubit>(context).isDark
                   ? Colors.white
                   : Colors.black.withOpacity(0.7)),

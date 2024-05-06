@@ -32,16 +32,13 @@ class AzkarListNumber extends StatelessWidget {
             width: width(context, 32.5),
             height: height(context, 32.5),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Text(
-              i.toArabicNumbers,
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'DG_Kufi',
-                  color: AppColors.mainClr),
-            ),
+          Text(
+            i.toArabicNumbers,
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Gamila',
+                color: AppColors.mainClr),
           ),
         ],
       ),

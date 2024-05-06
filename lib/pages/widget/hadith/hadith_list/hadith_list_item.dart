@@ -35,16 +35,16 @@ class HadithListItem extends StatelessWidget {
                 Text('${model.number}',
                     textAlign: TextAlign.right,
                     style: const TextStyle(
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.bold,
                         fontSize: 12,
-                        fontFamily: 'DG_Kufi',
+                        fontFamily: 'Gamila',
                         color: AppColors.mainClr)),
                 Text('${model.name}',
                     textAlign: TextAlign.right,
                     style: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12,
-                        fontFamily: 'DG_Kufi',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        fontFamily: 'Gamila',
                         color: AppColors.mainClr))
               ],
             ),

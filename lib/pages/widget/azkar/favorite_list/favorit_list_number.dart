@@ -24,16 +24,13 @@ class FavoritListNumber extends StatelessWidget {
             width: width(context, 32.5),
             height: height(context, 32.5),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 3, left: 3),
-            child: Text(
-              i.toArabicNumbers,
-              style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'DG_Kufi',
-                  color: AppColors.mainClr),
-            ),
+          Text(
+            i.toArabicNumbers,
+            style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Gamila',
+                color: AppColors.mainClr),
           )
         ],
       ),

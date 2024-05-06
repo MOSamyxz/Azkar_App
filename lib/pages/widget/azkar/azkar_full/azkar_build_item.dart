@@ -54,23 +54,6 @@ class AzkarBuildItem extends StatelessWidget {
                           SizedBox(
                             height: height(context, 5),
                           ),
-                          needButton
-                              ? MaterialButton(
-                                  elevation: 0,
-                                  color: AppColors.mainClr,
-                                  onPressed: onTapButton,
-                                  //return false when click on "NO"
-                                  child: Text(
-                                    textButton ?? '',
-                                    style: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 16,
-                                        fontFamily: 'KFGQPC',
-                                        color: Colors.white),
-                                  ),
-                                )
-                              : const SizedBox(),
                           SizedBox(
                             height: height(context, 5),
                           ),

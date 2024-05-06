@@ -18,8 +18,8 @@ class CustomMainBody extends StatelessWidget {
       mainBody,
       style: TextStyle(
           height: height(context, 1.8),
-          fontFamily: 'KFGQPC',
-          fontSize: 18,
+          fontFamily: 'Gamila',
+          fontSize: 16,
           fontWeight: FontWeight.w700,
           color: AppColors.mainClr),
       textAlign: TextAlign.center,

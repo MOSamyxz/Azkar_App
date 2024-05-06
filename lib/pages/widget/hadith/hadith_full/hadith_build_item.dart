@@ -23,9 +23,9 @@ class HadithBuildItem extends StatelessWidget {
         child: Text(
           "${model.hadithBody}",
           style: const TextStyle(
-              fontFamily: 'KFGQPC',
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
+              fontFamily: 'Gamila',
+              fontSize: 14,
+              fontWeight: FontWeight.w800,
               color: AppColors.mainClr),
           textAlign: TextAlign.center,
         ),
