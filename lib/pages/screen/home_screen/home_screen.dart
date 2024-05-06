@@ -1,8 +1,8 @@
 import 'package:azkar/core/constants/size.dart';
-import 'package:azkar/cubit/home_cubit/home_cubit.dart';
+import 'package:azkar/pages/screen/home_screen/home_cubit/home_cubit.dart';
 import 'package:azkar/cubit/theme_cubit/cubit.dart';
 import 'package:azkar/cubit/theme_cubit/state.dart';
-import 'package:azkar/pages/widget/widgets.dart';
+import 'package:azkar/pages/widgets.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,9 +1,9 @@
 import 'package:azkar/core/constants/colors.dart';
 import 'package:azkar/core/constants/images.dart';
 import 'package:azkar/core/constants/size.dart';
-import 'package:azkar/cubit/sebha_cubit/sebha_cubit.dart';
+import 'package:azkar/pages/screen/sebha_screen/sebha_cubit/sebha_cubit.dart';
 import 'package:azkar/cubit/theme_cubit/cubit.dart';
-import 'package:azkar/pages/widget/widgets.dart';
+import 'package:azkar/pages/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

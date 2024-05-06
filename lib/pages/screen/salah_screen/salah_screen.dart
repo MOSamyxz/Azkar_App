@@ -1,9 +1,6 @@
 import 'package:azkar/core/constants/size.dart';
 import 'package:azkar/core/functions/function.dart';
-import 'package:azkar/cubit/salah_cubit/salah_cubit.dart';
-import 'package:azkar/pages/widget/salah/salah_body.dart';
-
-import 'package:azkar/pages/widget/widgets.dart';
+import 'package:azkar/pages/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

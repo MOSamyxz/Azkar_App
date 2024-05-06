@@ -1,5 +1,5 @@
 import 'package:azkar/core/constants/strings.dart';
-import 'package:azkar/cubit/salah_cubit/salah_cubit.dart';
+import 'package:azkar/pages/screen/salah_screen/salah_cubit/salah_cubit.dart';
 
 List<String> salahTimeFun(SalahTimeSuccesRemoteState state) {
   List<String> salahTime = [

@@ -1,4 +1,4 @@
-import 'package:azkar/cubit/salah_cubit/salah_cubit.dart';
+import 'package:azkar/pages/screen/salah_screen/salah_cubit/salah_cubit.dart';
 import 'package:intl/intl.dart';
 
 Duration getDurationToNextSalah(SalahTimeSuccesRemoteState state) {

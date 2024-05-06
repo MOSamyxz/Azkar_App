@@ -1,21 +1,21 @@
 import 'package:azkar/core/constants/size.dart';
 import 'package:azkar/cubit/azkar_cubit/azkar_state.dart';
-import 'package:azkar/data/datasource/static/daawa_data.dart';
 import 'package:azkar/pages/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'widgets/daawa_item.dart';
-
-class DawaScreen extends StatelessWidget {
-  const DawaScreen({super.key});
-
+class HadithBuildScreen extends StatelessWidget {
+  const HadithBuildScreen(
+      {super.key, required this.id, required this.hadithNum});
+  final int id;
+  final String hadithNum;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: AppColors.mainClr,
       body: Stack(
         children: [
-          Background(),
+          const Background(),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: width(context, 20),
@@ -27,7 +27,7 @@ class DawaScreen extends StatelessWidget {
                   height: height(context, 56),
                 ),
                 CustomAppBar(
-                  title: 'الدعوة الى الله',
+                  title: hadithNum,
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -37,15 +37,15 @@ class DawaScreen extends StatelessWidget {
                 ),
                 BlocBuilder<AzkarCubit, AzkarState>(
                   builder: (context, state) {
+                    var model =
+                        BlocProvider.of<AzkarCubit>(context).hadithList[id];
                     return Expanded(
-                        child: ListView.builder(
-                            itemCount: daawaModel.length,
-                            padding: const EdgeInsets.all(0),
-                            itemBuilder: (context, index) {
-                              return DaawaItem(
-                                  daawaModel: daawaModel, index: index);
-                            }));
+                      child: HadithFullItem(model: model),
+                    );
                   },
+                ),
+                SizedBox(
+                  height: height(context, 19),
                 ),
               ],
             ),

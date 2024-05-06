@@ -1,5 +1,5 @@
 class AppImages {
-  static const String rootImages = "assets/";
+  static const String rootImages = "assets/images/";
 //========================images=========================
   static const String scaffoldBackground = '${rootImages}background.png';
   static const String mainPageCard = '${rootImages}mainpagecard.png';

@@ -3,7 +3,6 @@ import 'package:azkar/core/services/cache_helper.dart';
 import 'package:azkar/cubit/azkar_cubit/azkar_state.dart';
 import 'package:azkar/data/model/azkar_category_list_model.dart';
 import 'package:azkar/data/model/azkar_list_model.dart';
-import 'package:azkar/data/model/countrey_model.dart';
 import 'package:azkar/data/model/fav_azkar_model.dart';
 import 'package:azkar/data/model/moshaf_model.dart';
 import 'package:flutter/material.dart';
@@ -29,12 +28,12 @@ class AzkarCubit extends Cubit<AzkarState> {
     getTime();
   }
 
-//Quran
+//? Load all Quran
   List<MoshafModel> moshafList = [];
   late MoshafModel moshafModel;
 
   Future lodaQuran() async {
-    rootBundle.loadString("jsonfile/hafs_smart_v8.json").then((data) {
+    rootBundle.loadString("assets/jsonfile/hafs_smart_v8.json").then((data) {
       var response = json.decode(data);
       response.forEach((e) {
         moshafModel = MoshafModel.fromJson(e);
@@ -46,6 +45,8 @@ class AzkarCubit extends Cubit<AzkarState> {
     }).catchError((error) {});
   }
 
+//? Save Quran Page
+
   int savedPage = 0;
 
   void savePage(int page) async {
@@ -53,6 +54,8 @@ class AzkarCubit extends Cubit<AzkarState> {
     prefs.setInt('page', page);
     emit(PageSaveStat());
   }
+
+//? Load Quran Page
 
   Future<void> loadPage() async {
     final prefs = await SharedPreferences.getInstance();
@@ -62,12 +65,16 @@ class AzkarCubit extends Cubit<AzkarState> {
     emit(PageLoadStat());
   }
 
+//? Remove saved Quran Page
+
   void removePage() async {
     savedPage = 0;
     final prefs = await SharedPreferences.getInstance();
     prefs.remove('page');
     emit(PageRemoveStat());
   }
+
+//? Auto Save History Quran Page
 
   int savedHPage = 0;
 
@@ -76,6 +83,7 @@ class AzkarCubit extends Cubit<AzkarState> {
     prefs.setInt('hpage', page);
     emit(HPageSaveStat());
   }
+//? Load History Quran Page
 
   Future<void> loadHPage() async {
     final prefs = await SharedPreferences.getInstance();
@@ -84,6 +92,7 @@ class AzkarCubit extends Cubit<AzkarState> {
     savedHPage = sharedHPage ?? 0;
     emit(HPageLoadStat());
   }
+//? Remove History Quran Page
 
   void removeHPage() async {
     savedHPage = 0;
@@ -91,14 +100,17 @@ class AzkarCubit extends Cubit<AzkarState> {
     prefs.remove('hpage');
     emit(HPageRemoveStat());
   }
-//Azkar Category
+
+//? Load Azkar Category
 
   List<AzkarCategoryListModel> azkarCategoryList = [];
   late AzkarCategoryListModel azkarCategoryListModel;
 
   Future<void> loadAzkarCategory() async {
     emit(AzkarCategoryLoadingState());
-    rootBundle.loadString("jsonfile/azkarcategorylist.json").then((data) {
+    rootBundle
+        .loadString("assets/jsonfile/azkarcategorylist.json")
+        .then((data) {
       var response = json.decode(data);
       response.forEach((e) {
         azkarCategoryListModel = AzkarCategoryListModel.fromJson(e);
@@ -109,13 +121,13 @@ class AzkarCubit extends Cubit<AzkarState> {
     }).catchError((error) {});
   }
 
-  //Azkar List
+  //? Load Azkar List
 
   List<AzkarListModel> azkarList = [];
   late AzkarListModel azkarListModel;
 
   Future<void> loadAzkarList() async {
-    rootBundle.loadString("jsonfile/azkarlist.json").then((data) {
+    rootBundle.loadString("assets/jsonfile/azkarlist.json").then((data) {
       var response = json.decode(data);
       response.forEach((e) {
         azkarListModel = AzkarListModel.fromJson(e);
@@ -123,13 +135,13 @@ class AzkarCubit extends Cubit<AzkarState> {
       });
     }).catchError((error) {});
   }
-  //Fav Azkar
+  //? Load Fav Azkar
 
   List<FavAzkarListModel> favAzkarList = [];
   late FavAzkarListModel favAzkarListModel;
 
   Future<void> loadFavAzkarList() async {
-    rootBundle.loadString("jsonfile/favazkarlist.json").then((data) {
+    rootBundle.loadString("assets/jsonfile/favazkarlist.json").then((data) {
       var response = json.decode(data);
       response.forEach((e) {
         favAzkarListModel = FavAzkarListModel.fromJson(e);
@@ -138,22 +150,7 @@ class AzkarCubit extends Cubit<AzkarState> {
     }).catchError((error) {});
   }
 
-  //Fav Azkar
-
-  Set<String> favorite = {};
-
-  Future<void> loadFavorites() async {
-    final prefs = await SharedPreferences.getInstance();
-    final favorites = prefs.getStringList('favorites') ?? [];
-
-    favorite = Set<String>.from(favorites);
-    emit(FavAzkarLoadedState());
-  }
-
-  Future<void> saveFavorites() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList('favorites', favorite.toList());
-  }
+  //? Add Azkar to Fav
 
   void toggleFavorite(String item) {
     if (favorite.contains(item)) {
@@ -167,13 +164,32 @@ class AzkarCubit extends Cubit<AzkarState> {
     saveFavorites();
   }
 
-//Hadith list
+  //? Save Azkar to Fav
+
+  Set<String> favorite = {};
+
+  Future<void> saveFavorites() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('favorites', favorite.toList());
+  }
+
+  //? Load Azkar to Fav
+
+  Future<void> loadFavorites() async {
+    final prefs = await SharedPreferences.getInstance();
+    final favorites = prefs.getStringList('favorites') ?? [];
+
+    favorite = Set<String>.from(favorites);
+    emit(FavAzkarLoadedState());
+  }
+
+//? Load Hadith list
 
   List<HadithListModel> hadithNameList = [];
   late HadithListModel hadithModel;
 
   Future<void> loadHadithList() async {
-    rootBundle.loadString("jsonfile/hadithlist.json").then((data) {
+    rootBundle.loadString("assets/jsonfile/hadithlist.json").then((data) {
       var response = json.decode(data);
       response.forEach((e) {
         hadithModel = HadithListModel.fromJson(e);
@@ -182,68 +198,23 @@ class AzkarCubit extends Cubit<AzkarState> {
     }).catchError((error) {});
   }
 
-  //Hadith
+  //? Load Hadith
   List<HadithModel> hadithList = [];
 
   late HadithModel hadithDetailModel;
 
   Future<void> loadHadith() async {
-    rootBundle.loadString("jsonfile/hadith.json").then((data) {
+    rootBundle.loadString("assets/jsonfile/hadith.json").then((data) {
       var response = json.decode(data);
       response.forEach((e) {
         hadithDetailModel = HadithModel.fromJson(e);
 
-        //   if (hadithDetail.hadithId == model.id) {
         hadithList.add(hadithDetailModel);
-        // }
       });
     }).catchError((error) {});
   }
 
-//cities
-
-  List<CitiesModel> countryCity = [];
-
-  late CitiesModel cityModel;
-
-  Future<void> loadCountries() async {
-    rootBundle.loadString("jsonfile/citiesaren.json").then((data) {
-      var response = json.decode(data);
-      response.forEach((e) {
-        cityModel = CitiesModel.fromJson(e);
-
-        //   if (hadithDetail.hadithId == model.id) {
-        countryCity.add(cityModel);
-
-        // }
-      });
-    }).catchError((error) {});
-  }
-
-// Search
-  void initSearch() {
-    foundCitis = countryCity;
-  }
-
-  List<CitiesModel> foundCitis = [];
-
-  void search(String query) {
-    List<CitiesModel> result = [];
-    if (query.isEmpty) {
-      result = countryCity;
-      emit(ListEmptyState());
-    } else {
-      result = countryCity
-          .where(
-              (item) => item.name!.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-      emit(FilterListState());
-    }
-    foundCitis = result;
-    emit(FilterListState());
-  }
-
-  /// Notification Time
+  //? Set Notification Time
 
   void setTime(context) async {
     TimeOfDay? pickedDate = await showTimePicker(
@@ -256,6 +227,8 @@ class AzkarCubit extends Cubit<AzkarState> {
       getTime();
     }
   }
+
+  //? Get Notification Time
 
   void getTime() {
     CacheHelper.getInt(key: 'sNotificationH');
